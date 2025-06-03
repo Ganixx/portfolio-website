@@ -16,14 +16,14 @@ export default function About() {
         <div ref={ref} className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
             <h2
-              className={`text-4xl font-bold mb-6 transition-all duration-700 ${
+              className={`text-4xl font-bold mb-6 transition-all duration-400 ${
                 inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
               }`}
             >
               About Me
             </h2>
             <p
-              className={`text-xl text-muted-foreground max-w-2xl mx-auto transition-all duration-700 delay-200 ${
+              className={`text-xl text-muted-foreground max-w-2xl mx-auto transition-all duration-500 delay-200 ${
                 inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
               }`}
             >
@@ -77,13 +77,16 @@ export default function About() {
             >
               <Card className="overflow-hidden">
                 <CardContent className="p-8">
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                      <GraduationCap className="h-6 w-6 text-primary" />
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="text-xl font-bold mb-2">Education</h3>
-                      <div className="space-y-4">
+                  <div className="flex flex-col gap-6 relative">
+                      <div className="absolute left-0 top-0 bottom-0 w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center -mt-2">
+                        <GraduationCap className="h-6 w-6 text-primary" />
+                      </div>
+                      <div className="absolute left-6 top-10 bottom-0 w-0.5 timeline-line hidden lg:block" />
+                      <h3 className="text-xl font-bold  pl-[3.5rem]">Education</h3>
+                      <div className="pl-5 flex gap-6">
+                        <div className="hidden lg:flex w-5 h-6 bg-card items-center justify-center z-10">
+                          <span className="text-primary font-bold text-lg">1</span>
+                        </div>
                         <div>
                           <h4 className="font-semibold">Master's in Computer Science</h4>
                           <p className="text-muted-foreground">University of Texas at Arlington</p>
@@ -94,8 +97,21 @@ export default function About() {
                           </p>
                         </div>
                       </div>
+                      <div className="pl-5 flex gap-6">
+                        <div className="hidden lg:flex w-5 h-6 bg-card items-center justify-center z-10">
+                          <span className="text-primary font-bold text-lg">2</span>
+                        </div>
+                        <div>
+                          <h4 className="font-semibold">Bachelor's in Computer Science</h4>
+                          <p className="text-muted-foreground">GuruNanak Institutions Hyderabad</p>
+                          <p className="text-sm text-muted-foreground">Aug 2016 - Jul 2020 • GPA: 3.5</p>
+                          <p className="text-sm mt-2">
+                            <span className="font-medium">Coursework:</span> Data Structures Intro, Operating Systems,
+                            Software Management, Database Systems, Computer Networks, Computer Architecture
+                          </p>
+                        </div>
+                      </div>
                     </div>
-                  </div>
                 </CardContent>
               </Card>
             </div>
