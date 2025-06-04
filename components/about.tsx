@@ -42,13 +42,13 @@ export default function About() {
               <p className="text-lg leading-relaxed">
                 With over two years of professional experience and a passion for personal projects, I specialize in
                 developing applications using{" "}
-                <span className="text-primary font-semibold">PostgreSQL, TypeScript, React, and NodeJS</span>. I thrive
+                <span className="text-primary font-semibold">Next.js, Spring Boot, TypeScript, React, and NodeJS</span>. I thrive
                 in fast-paced, agile environments, always looking for ways to optimize performance and improve user
                 experiences.
               </p>
 
-              <p className="text-lg leading-relaxed">
-                Currently pursuing my Master's in Computer Science at the University of Texas at Arlington with a
+              <p className="text-lg leading-relaxed ">
+                Completed my Master's in Computer Science at the University of Texas at Arlington with
                 <span className="text-primary font-semibold"> 3.9 GPA</span>, focusing on advanced topics in distributed
                 systems, machine learning, and software engineering.
               </p>
