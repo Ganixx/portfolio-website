@@ -237,7 +237,7 @@ export default function SkillTimeline() {
                                       className="opacity-0 hover:opacity-95 absolute top-0 left-0 w-14 h-14 lg:w-16 lg:h-16 rounded-xl
                                       px-3 py-2 bg-card text-primary text-sm
                                       shadow-xl z-20 border text-center flex justify-center items-start
-                                       hover:animate-pulse"
+                                       hover:animate-out"
                                     >
                                       {skill}
                                   </div>

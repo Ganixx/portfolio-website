@@ -1,67 +1,46 @@
 "use client"
 
-import { useInView } from "react-intersection-observer"
-import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Building, Calendar, MapPin } from "lucide-react"
+import { Card, CardContent } from "@/components/ui/card"
+import { Building, Calendar, MapPin, Building2 } from "lucide-react"
+import { useInView } from "react-intersection-observer"
 
 const experiences = [
   {
     company: "Cognizant",
-    position: "Software Engineer (Java Full-Stack Developer)",
-    duration: "Mar 2021 - Jul 2023",
+    position: "Software Engineer(Full-Stack Developer)",
+    duration: "Jul 2021 - Jul 2023",
     location: "India",
     type: "Full-time",
     description:
-      "Led full-stack development for an insurance policyholder website serving over 100,000 users, integrating secure authentication with Ping SSO to reduce support tickets by 30%.",
+      "Delivered an end-to-end, cloud-native upgrade of the BSPN portal—building React/Redux screens, Spring Boot microservices, Redis caching,Azure AD SSO, and AWS-based DevOps pipelines to give insurance agents a faster, seamless experience.",
     achievements: [
-      "Enhanced user privacy and security by implementing HIPAA-compliant logging and robust backend authentication measures",
-      "Optimized frontend performance with lazy loading and caching techniques, reducing average page load time from 3.5s to 1.8s",
-      "Streamlined backend operations by optimizing SQL queries with PostgreSQL and developing REST endpoints using Spring Boot",
-      "Delivered 10+ production features in an Agile environment, including new signup and account management functionalities",
-      "Migrated legacy data to AWS S3, increasing data retrieval speed by 25%",
-      "Created AWS CloudFormation templates for development environments, cutting setup time from 4 hours to 45 minutes",
+    "Developed Responsive Web Features: Implemented new user-facing features on the BSPN portal using React.js and Redux, building an intuitive single-page application for insurance agents. ",
+    "Built and Consumed Microservices: Developed backend Spring Boot microservices and REST APIs powering core BSPN functionalities like client info lookup, policy management, and commission tracking.",
+    "Optimized Performance with Caching: Improved page and report load times by implementing a caching layer for frequently requested data. Used Spring’s caching abstraction backed by Redis to store results of expensive operations",
+    "DevOps and Cloud Deployment: Gained hands-on experience with AWS cloud infrastructure and DevOps pipelines. Containerized the Spring Boot services using Docker and deployed them on AWS (using Amazon ECS),set up automated build/test pipelines and implemented blue-green deployments for zero-downtime releases.",
+    "Monitoring and Support (Run Team): Collaborated with the operations team to monitor the BSPN platform in production. Used monitoring tools like splunk with defined alerts to track uptime, error rates, and performance metrics.",
+    "Agile Collaboration and Quality Assurance: Worked in a Scrum team following two-week sprints. Participated in daily stand-ups, sprint planning, and retrospectives, emphasized code quality, wrote unit tests for new backend modules and used Jest to test React components. ",
+    "Integrated Enterprise SSO (Azure AD): Worked on Implementation of Single Sign-On using Azure Active Directory for the portal’s authentication. "
     ],
-    technologies: ["Java", "React.js", "Spring Boot", "AWS", "PING SSO", "REST API", "PostgreSQL"],
-  },
-]
-
-const projects = [
-  {
-    title: "Dynamic Fitness Tracking Web Application",
-    date: "Jan 2025",
-    description: "Designed an e-commerce app with React.js, Node.js, and PostgreSQL, increasing transactions by 30%",
-    achievements: [
-      "Configured Stripe for payment processing, ensuring 99% secure transactions",
-      "Built a responsive, mobile-first UI using Tailwind CSS, improving mobile user experience by 40%",
-      "Secured user authentication with JWT and OAuth2 for over 500 active users",
-      "Implemented a recommendation system using machine learning, improving sales conversions by 15%",
-    ],
-    technologies: ["React.js", "Node.js", "PostgreSQL", "JWT", "OAuth 2", "Stripe", "Tailwind CSS"],
+    technologies: ["Java", "React.js", "Spring Boot", "AWS", "Azure Ad", "REST API", "Mysql"],
+    icon : Building2
   },
   {
-    title: "Fraud Detection System Using Machine Learning",
-    date: "Aug 2024",
-    description: "Developed a fraud detection model with Python and scikit-learn, achieving 95% accuracy",
+    company: "Cognizant",
+    position: "Junior Software Engineer(Full-Stack Developer)",
+    duration: "Mar 2021 - Jul 2021",
+    location: "India",
+    type: "Full-time",
+    description:
+      "Earned Cognizant Full-Stack Engineer Certificate (Levels 1 & 2) by building a production-ready Docker/EKS Twitter clone—leveraging React, Spring Boot, MySQL, AWS CI/CD, Kafka streams, Cognito auth, and ELK logging—to boost deployment efficiency and observability.",
     achievements: [
-      "Deployed the model via Flask and AWS Lambda, reducing detection time by 30%",
-      "Automated retraining with Airflow, decreasing manual effort by 40%",
-      "Created a Plotly Dash dashboard, enhancing analytical efficiency by 30%",
-      "Analyzed 1M+ transactions to uncover key fraud patterns",
+    "Completed enterprise-level training in React.js, Java, Spring Boot, MySQL, AWS, Kafka, ELK Stack.",
+    "Developed a fully functional Twitter clone as a capstone project to apply learned technologies in a real-world use case, integrating real-time feeds and authentication using AWS Cognito and containerization using Docker and EKS.",
+    "Automated deployment workflows using AWS CI/CD pipelines and implemented centralized logging via the ELK Stack, improving efficiency and observability, received Full Stack Engineer Certificate level 1,2 upon completion."
     ],
-    technologies: ["Python", "SciKit-learn", "AWS", "Flask", "Airflow", "AWS Lambda", "Plotly"],
-  },
-  {
-    title: "EngageBot - Intelligent University Assistance System",
-    date: "May 2024",
-    description: "Delivered a real-time messaging system using Socket.io, Node.js, and MongoDB, supporting 500+ users",
-    achievements: [
-      "Utilized Redis for session storage, lowering latency by 30%",
-      "Used JWT for security, ensuring 99.9% uptime",
-      "Applied responsive design principles with CSS Grid and Flexbox, achieving 100% compatibility across devices",
-      "Enhanced engagement with a notification system using the Web Push API, driving a 25% increase in activity",
-    ],
-    technologies: ["Node.js", "MongoDB", "Socket.io", "Web Push API", "CSS Grid", "Redis", "JWT"],
+    technologies: ["Java", "React.js", "Spring Boot", "AWS", "PING SSO", "REST API", "Mysql","Kafka","ELK stack"],
+    icon: Building
   },
 ]
 
@@ -81,14 +60,14 @@ export default function Experience() {
                 inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
               }`}
             >
-              Experience & Projects
+              Experience
             </h2>
             <p
               className={`text-xl text-muted-foreground transition-all duration-700 delay-200 ${
                 inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
               }`}
             >
-              Professional experience and academic projects
+              Professional experience as a full stack developer
             </p>
           </div>
 
@@ -99,111 +78,63 @@ export default function Experience() {
             <div className="space-y-12">
               {/* Professional Experience */}
               <div
-                className={`transition-all duration-700 delay-300 ${
+                className={`flex flex-col gap-4 transition-all duration-700 delay-300 ${
                   inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
                 }`}
               >
-                <div className="flex items-start gap-8">
-                  <div className="hidden lg:flex w-16 h-16 bg-primary rounded-full items-center justify-center relative z-10">
-                    <Building className="h-8 w-8 text-primary-foreground" />
-                  </div>
-
-                  <div className="flex-1">
-                    <Card className="overflow-hidden">
-                      <CardContent className="p-8">
-                        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-4">
-                          <div>
-                            <h3 className="text-2xl font-bold">{experiences[0].company}</h3>
-                            <p className="text-xl text-primary font-semibold">{experiences[0].position}</p>
-                          </div>
-                          <div className="flex flex-col lg:items-end gap-2 mt-2 lg:mt-0">
-                            <div className="flex items-center gap-2 text-muted-foreground">
-                              <Calendar className="h-4 w-4" />
-                              <span>{experiences[0].duration}</span>
-                            </div>
-                            <div className="flex items-center gap-2 text-muted-foreground">
-                              <MapPin className="h-4 w-4" />
-                              <span>{experiences[0].location}</span>
-                            </div>
-                          </div>
+                {
+                  experiences.map( (experience,index) => {
+                    return(
+                      <div className="flex items-start gap-8" key={index}>
+                        <div className="hidden lg:flex w-16 h-16 bg-primary rounded-full items-center justify-center relative z-10">
+                          <experience.icon className="h-8 w-8 text-primary-foreground"/>
                         </div>
-
-                        <p className="text-lg mb-6">{experiences[0].description}</p>
-
-                        <div className="space-y-3 mb-6">
-                          {experiences[0].achievements.map((achievement, index) => (
-                            <div key={index} className="flex items-start gap-3">
-                              <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0" />
-                              <p className="text-muted-foreground">{achievement}</p>
-                            </div>
-                          ))}
-                        </div>
-
-                        <div className="flex flex-wrap gap-2">
-                          {experiences[0].technologies.map((tech) => (
-                            <Badge key={tech} variant="secondary">
-                              {tech}
-                            </Badge>
-                          ))}
-                        </div>
-                      </CardContent>
-                    </Card>
-                  </div>
-                </div>
-              </div>
-
-              {/* Academic Projects */}
-              {projects.map((project, index) => (
-                <div
-                  key={project.title}
-                  className={`transition-all duration-700 ${
-                    inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-                  }`}
-                  style={{ transitionDelay: `${(index + 1) * 200 + 300}ms` }}
-                >
-                  <div className="flex items-start gap-8">
-                    <div className="hidden lg:flex w-16 h-16 bg-card border-2 border-primary rounded-full items-center justify-center relative z-10">
-                      <span className="text-primary font-bold text-lg">{index + 1}</span>
-                    </div>
-
-                    <div className="flex-1">
-                      <Card className="overflow-hidden">
-                        <CardContent className="p-8">
-                          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-4">
-                            <div>
-                              <h3 className="text-xl font-bold">{project.title}</h3>
-                              <p className="text-primary font-semibold">Academic Project</p>
-                            </div>
-                            <div className="flex items-center gap-2 text-muted-foreground mt-2 lg:mt-0">
-                              <Calendar className="h-4 w-4" />
-                              <span>{project.date}</span>
-                            </div>
-                          </div>
-
-                          <p className="text-lg mb-6">{project.description}</p>
-
-                          <div className="space-y-3 mb-6">
-                            {project.achievements.map((achievement, achievementIndex) => (
-                              <div key={achievementIndex} className="flex items-start gap-3">
-                                <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0" />
-                                <p className="text-muted-foreground">{achievement}</p>
+                        <div className="flex-1">
+                          <Card className="overflow-hidden">
+                            <CardContent className="p-8">
+                              <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-4">
+                                <div>
+                                  <h3 className="text-2xl font-bold">{experience.company}</h3>
+                                  <p className="text-xl text-primary font-semibold">{experience.position}</p>
+                                </div>
+                                <div className="flex flex-col lg:items-end gap-2 mt-2 lg:mt-0">
+                                  <div className="flex items-center gap-2 text-muted-foreground">
+                                    <Calendar className="h-4 w-4" />
+                                    <span>{experience.duration}</span>
+                                  </div>
+                                  <div className="flex items-center gap-2 text-muted-foreground">
+                                    <MapPin className="h-4 w-4" />
+                                    <span>{experience.location}</span>
+                                  </div>
+                                </div>
                               </div>
-                            ))}
-                          </div>
 
-                          <div className="flex flex-wrap gap-2">
-                            {project.technologies.map((tech) => (
-                              <Badge key={tech} variant="outline">
-                                {tech}
-                              </Badge>
-                            ))}
-                          </div>
-                        </CardContent>
-                      </Card>
+                              <p className="text-lg mb-6">{experience.description}</p>
+
+                              <div className="space-y-3 mb-6">
+                                {experience.achievements.map((achievement, index) => (
+                                  <div key={index} className="flex items-start gap-3">
+                                    <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0" />
+                                    <p className="text-muted-foreground">{achievement}</p>
+                                  </div>
+                                ))}
+                              </div>
+
+                              <div className="flex flex-wrap gap-2">
+                                {experience.technologies.map((tech) => (
+                                  <Badge key={tech} variant="secondary">
+                                    {tech}
+                                  </Badge>
+                                ))}
+                              </div>
+                            </CardContent>
+                          </Card>
+                        </div>
                     </div>
-                  </div>
-                </div>
-              ))}
+                    )
+                  })
+                }
+              </div>
             </div>
           </div>
         </div>
