@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { ReactEventHandler, useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
@@ -24,12 +24,12 @@ export default function Contact() {
     threshold: 0.1,
   })
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
     setFormState((prev) => ({ ...prev, [name]: value }))
   }
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e : React.FormEvent<HTMLFormElement> ) => {
     e.preventDefault()
     setIsSubmitting(true)
 

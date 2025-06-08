@@ -13,7 +13,7 @@ const experiences = [
     location: "India",
     type: "Full-time",
     description:
-      "Delivered an end-to-end, cloud-native upgrade of the BSPN portal—building React/Redux screens, Spring Boot microservices, Redis caching,Azure AD SSO, and AWS-based DevOps pipelines to give insurance agents a faster, seamless experience.",
+      "Delivered an end-to-end, cloud-native upgrade of the BSPN portal-building React/Redux screens, Spring Boot microservices, Redis caching,Azure AD SSO, and AWS-based DevOps pipelines to give insurance agents a faster, seamless experience.",
     achievements: [
     "Developed Responsive Web Features: Implemented new user-facing features on the BSPN portal using React.js and Redux, building an intuitive single-page application for insurance agents. ",
     "Built and Consumed Microservices: Developed backend Spring Boot microservices and REST APIs powering core BSPN functionalities like client info lookup, policy management, and commission tracking.",

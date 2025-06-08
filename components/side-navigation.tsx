@@ -4,14 +4,15 @@ import { useState, useEffect } from "react"
 import { usePathname } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { ModeToggle } from "./mode-toggle"
-import { Home, User, Briefcase, BookOpen, Mail, Menu, X, Download, Github, Linkedin } from "lucide-react"
+import { Home, User, Briefcase, BookOpen, Mail, Menu, X, Download, Github, Linkedin, Hammer } from "lucide-react"
 import Image from "next/image"
 
 const navItems = [
   { name: "Home", path: "/", icon: Home },
   { name: "About", path: "/about", icon: User },
-  { name: "Projects", path: "/projects", icon: Briefcase },
-  { name: "Blog", path: "/blog", icon: BookOpen },
+  { name: "Experience", path: "/about", icon: Briefcase },
+  { name: "Projects", path: "/projects", icon: Hammer  },
+  // { name: "Blog", path: "/blog", icon: BookOpen },
   { name: "Contact", path: "/contact", icon: Mail },
 ]
 
@@ -22,7 +23,8 @@ export default function SideNavigation() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ["home", "about", "experience", "projects", "blog", "contact"]
+      //add blog later
+      const sections = ["home", "about", "experience", "projects",  "contact"]
       const scrollPosition = window.scrollY + 100
 
       for (const section of sections) {
@@ -89,8 +91,7 @@ export default function SideNavigation() {
         <div className="flex flex-col space-y-4">
           {navItems.map((item) => {
             const Icon = item.icon
-            const isActive = pathname === item.path || (pathname === "/" && activeSection === item.name.toLowerCase())
-
+            const isActive = pathname === "/" ? activeSection === item.name.toLowerCase() : pathname === item.path
             return (
               <Button
                 key={item.name}
@@ -98,11 +99,7 @@ export default function SideNavigation() {
                 size="icon"
                 className="relative group"
                 onClick={() => {
-                  if (pathname === "/" && item.name !== "Projects" && item.name !== "Blog") {
-                    scrollToSection(item.name.toLowerCase())
-                  } else {
-                    window.location.href = item.path
-                  }
+                  scrollToSection(item.name.toLowerCase()) 
                 }}
               >
                 <Icon className="h-5 w-5" />
@@ -135,7 +132,7 @@ export default function SideNavigation() {
 
         {/* Resume Download */}
         <Button variant="outline" size="icon" asChild>
-          <a href="/resume.pdf" download>
+          <a href="/Ganesh_Gouru_2.5_Years_Full_Stack_Software_Engineer.pdf" download>
             <Download className="h-4 w-4" />
           </a>
         </Button>

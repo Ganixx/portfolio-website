@@ -14,7 +14,7 @@ export default function Home() {
       <TechStack />
       <Experience />
       <Projects />
-      <BlogPreview />
+      {/* <BlogPreview /> */}
       <Contact />
     </div>
   )

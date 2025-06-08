@@ -9,74 +9,115 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Github, ExternalLink, Calendar } from "lucide-react"
 import { useInView } from "react-intersection-observer"
 
-const projects = [
+
+type projectType = {
+  id: number;
+  title: string;
+  description: string;
+  image: string;
+  tags: string[];
+  category: string;
+  date: string;
+  github: string;
+  demo: string;
+  highlights: string[];
+}
+
+const projects : projectType[] = [
   {
     id: 1,
-    title: "Dynamic Fitness Tracking Web Application",
+    title: "Mav Grades",
     description:
-      "A comprehensive e-commerce fitness tracking application with payment processing, user authentication, and ML-powered recommendations.",
-    image: "/placeholder.svg?height=400&width=600",
-    tags: ["React.js", "Node.js", "PostgreSQL", "JWT", "OAuth 2", "Stripe", "Machine Learning"],
+      "A web application providing University of Texas at Arlington students with detailed grade distributions by course and professor, aiding in informed class selection decisions.",
+    image: "/mavgrades.png?height=400&width=600",
+    tags: ["Next.js", "TypeScript", "SQLite", "Vercel Analytics", "OAuth 2", "TailwindCSS",],
     category: "fullstack",
     date: "Jan 2025",
-    github: "https://github.com/ganixx",
-    demo: "https://demo.com",
+    github: "https://github.com/acmuta/mavgrades",
+    demo: "https://www.mavgrades.com/",
     highlights: [
-      "30% increase in transactions",
-      "99% secure payment processing",
-      "40% improved mobile UX",
-      "15% better sales conversions",
+      "KPI with Vercel analytics integration",
+      "over 1,000 unique users within the first month.",
+      "A robust data pipeline to extract official grades data from UTA's system",
+      "Leading a 11 member cross functional team"
     ],
   },
   {
     id: 2,
-    title: "Fraud Detection System Using Machine Learning",
+    title: "Ticket Management System (Work in Progress)",
     description:
-      "Advanced fraud detection system using machine learning algorithms with real-time processing and automated retraining capabilities.",
-    image: "/placeholder.svg?height=400&width=600",
-    tags: ["Python", "SciKit-learn", "AWS", "Flask", "Airflow", "AWS Lambda", "Plotly"],
-    category: "ai",
-    date: "Aug 2024",
-    github: "https://github.com/ganixx",
-    demo: "https://demo.com",
-    highlights: ["95% accuracy rate", "30% faster detection", "40% reduced manual effort", "1M+ transactions analyzed"],
+      "Developed a task management web portal for a local computer repair business to streamline their ticketing and workflow processes.",
+    image: "/repairshop.png?height=400&width=600",
+    tags: [
+      "Next.js",
+      "Tailwind CSS",
+      "Zod",
+      "NeonDB",
+      "React Hook Form",
+      "Next.js Server Actions",
+      "Drizzle ORM",
+      "shadcn/ui",
+      "React Table",
+      "Kind (Passwordless Auth)"
+    ],
+    category: "Freelance",
+    date: "May 2025",
+    github: "https://github.com/Ganixx/repairshop",
+    demo: "https://github.com/Ganixx/repairshop",
+    highlights: [
+      "Implemented secure passwordless authentication using Kind",
+      "Built fully type-safe forms using Zod and React Hook Form",
+      "Responsive UI with light and dark mode support using Tailwind and shadcn/ui",
+      "Utilized Next.js Server Actions and Suspense for optimized server-side interactions"
+    ]
   },
   {
     id: 3,
-    title: "EngageBot - Intelligent University Assistance System",
+    title: "Simplify",
     description:
-      "Real-time messaging system for university assistance with intelligent chatbot capabilities and push notifications.",
-    image: "/placeholder.svg?height=400&width=600",
-    tags: ["Node.js", "MongoDB", "Socket.io", "Web Push API", "CSS Grid", "Redis", "JWT"],
-    category: "fullstack",
-    date: "May 2024",
-    github: "https://github.com/ganixx",
-    demo: "https://demo.com",
-    highlights: ["500+ concurrent users", "30% lower latency", "99.9% uptime", "25% increased engagement"],
+      "A Chrome extension designed to help users with reading difficulties (e.g., ADHD) by simplifying web content and enhancing readability.",
+    image: "/simplyfyit1.jpg?height=400&width=600",
+    tags: ["Vanilla JS", "HTML", "CSS", "n8n", "Clerk", "LocalStorage"],
+    category: "Hackathon",
+    date: "Mar 2025",
+    github: "https://github.com/Ganixx/ADHD-helper",
+    demo: "https://github.com/Ganixx/ADHD-helper",
+    highlights: [
+      "Won 1st Prize at UTA Hackathon 2025",
+      "Features include customizable text color, size, and instant text summarization",
+      "Integrated n8n automation with Gemini AI for on-page content processing",
+      "Built a sleek, responsive UI with persistent local settings"
+    ]
   },
   {
     id: 4,
-    title: "Insurance Policyholder Platform",
+    title: "Enterprise Twitter Clone",
     description:
-      "Enterprise-scale insurance platform serving 100,000+ users with secure authentication and optimized performance.",
-    image: "/placeholder.svg?height=400&width=600",
-    tags: ["Java", "React.js", "Spring Boot", "AWS", "PING SSO", "PostgreSQL"],
-    category: "enterprise",
-    date: "Mar 2021 - Jul 2023",
-    github: "https://github.com/ganixx",
-    demo: "https://demo.com",
-    highlights: ["100,000+ users", "30% reduced support tickets", "48% faster page loads", "HIPAA compliant"],
+      "A full-featured Twitter clone built as part of Cognizant's Full Stack Engineer Level 2 certification, leveraging enterprise-grade AWS architecture and modern Java backend.",
+    image: "/tweetappc3.png?height=400&width=600",
+    tags: ["React.js", "Java", "Spring Boot", "AWS", "Kafka", "ELK Stack"],
+    category: "fullstack",
+    date: "July 2022",
+    github: "https://github.com/Ganixx/tweetappC3",
+    demo: "https://github.com/Ganixx/tweetappC3",
+    highlights: [
+      "Deployed frontend on AWS S3 and backend on ECS within a secure VPC, with user authentication via AWS Cognito",
+      "Implemented centralized logging and monitoring using ELK Stack, AWS CodePipeline, and CloudWatch",
+      "Built microservices architecture with Kafka-based communication, JWT-secured authentication, and rate limiting",
+      "Designed a fully responsive UI with post creation, nested comments, likes, and persistent storage using MySQL"
+    ]
   },
 ]
 
+const categoryList = [ "All",...new Set(projects.map(project => project.category))]
 export default function Projects() {
-  const [activeTab, setActiveTab] = useState("all")
+  const [activeTab, setActiveTab] = useState("All")
   const { ref, inView } = useInView({
     triggerOnce: true,
     threshold: 0.1,
   })
 
-  const filteredProjects = activeTab === "all" ? projects : projects.filter((project) => project.category === activeTab)
+  const filteredProjects = activeTab === "All" ? projects : projects.filter((project) => project.category === activeTab)
 
   return (
     <section id="projects" className="py-20">
@@ -99,51 +140,32 @@ export default function Projects() {
             </p>
           </div>
 
-          <Tabs defaultValue="all" className="mb-8" onValueChange={setActiveTab}>
+          <Tabs defaultValue="All" className="mb-8" onValueChange={setActiveTab}>
             <div
               className={`flex justify-center transition-all duration-700 delay-300 ${
                 inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
               }`}
             >
-              <TabsList className="grid w-full max-w-md grid-cols-4">
-                <TabsTrigger value="all">All</TabsTrigger>
-                <TabsTrigger value="fullstack">Full Stack</TabsTrigger>
-                <TabsTrigger value="ai">AI/ML</TabsTrigger>
-                <TabsTrigger value="enterprise">Enterprise</TabsTrigger>
+              <TabsList className="flex w-full max-w-md  ">
+                {
+                  categoryList.map(category => (
+                    <TabsTrigger key={category} value={category}>{category.toUpperCase()}</TabsTrigger> 
+                  ))
+                }
               </TabsList>
             </div>
 
-            <TabsContent value="all" className="mt-12">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                {filteredProjects.map((project, index) => (
-                  <ProjectCard key={project.id} project={project} index={index} inView={inView} />
-                ))}
-              </div>
-            </TabsContent>
-
-            <TabsContent value="fullstack" className="mt-12">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                {filteredProjects.map((project, index) => (
-                  <ProjectCard key={project.id} project={project} index={index} inView={inView} />
-                ))}
-              </div>
-            </TabsContent>
-
-            <TabsContent value="ai" className="mt-12">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                {filteredProjects.map((project, index) => (
-                  <ProjectCard key={project.id} project={project} index={index} inView={inView} />
-                ))}
-              </div>
-            </TabsContent>
-
-            <TabsContent value="enterprise" className="mt-12">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                {filteredProjects.map((project, index) => (
-                  <ProjectCard key={project.id} project={project} index={index} inView={inView} />
-                ))}
-              </div>
-            </TabsContent>
+            {
+              categoryList.map(category => (
+                <TabsContent value={category} className="mt-12" key={category}>
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    {filteredProjects.map((project, index) => (
+                      <ProjectCard key={project.id} project={project} index={index} inView={inView} />
+                    ))}
+                  </div>
+                </TabsContent>
+              ))
+            }
           </Tabs>
         </div>
       </div>
@@ -151,12 +173,16 @@ export default function Projects() {
   )
 }
 
-function ProjectCard({ project, index, inView }) {
+function ProjectCard({ project, index, inView } : {
+  project : projectType,
+  index : number,
+  inView : boolean
+}) {
   return (
     <Card
       className={`overflow-hidden transition-all duration-700 hover:shadow-xl group ${
         inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-      }`}
+      } `}
       style={{ transitionDelay: `${index * 200 + 500}ms` }}
     >
       <div className="relative h-64 overflow-hidden">
@@ -183,12 +209,13 @@ function ProjectCard({ project, index, inView }) {
         {/* Highlights */}
         <div className="grid grid-cols-2 gap-2">
           {project.highlights.map((highlight, idx) => (
-            <div key={idx} className="flex items-center gap-2 text-sm">
-              <div className="w-2 h-2 bg-primary rounded-full" />
-              <span className="text-muted-foreground">{highlight}</span>
+            <div key={idx} className="grid grid-cols-[0.5rem,1fr] gap-2 text-sm items-center justify-center">
+              <div className="size-2 bg-primary rounded-full " />
+              <div className="text-muted-foreground">{highlight}</div>
             </div>
           ))}
         </div>
+
 
         {/* Technologies */}
         <div className="flex flex-wrap gap-2">
