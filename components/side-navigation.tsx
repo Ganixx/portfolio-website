@@ -10,7 +10,7 @@ import Image from "next/image"
 const navItems = [
   { name: "Home", path: "/", icon: Home },
   { name: "About", path: "/about", icon: User },
-  { name: "Experience", path: "/about", icon: Briefcase },
+  { name: "Experience", path: "/#experience", icon: Briefcase },
   { name: "Projects", path: "/projects", icon: Hammer  },
   // { name: "Blog", path: "/blog", icon: BookOpen },
   { name: "Contact", path: "/contact", icon: Mail },
