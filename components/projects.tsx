@@ -29,7 +29,7 @@ const projects : projectType[] = [
     title: "Mav Grades",
     description:
       "A web application providing University of Texas at Arlington students with detailed grade distributions by course and professor, aiding in informed class selection decisions.",
-    image: "/mavgrades.png?height=400&width=600",
+    image: "/mavgrades.png",
     tags: ["Next.js", "TypeScript", "SQLite", "Vercel Analytics", "OAuth 2", "TailwindCSS",],
     category: "fullstack",
     date: "Jan 2025",
@@ -47,7 +47,7 @@ const projects : projectType[] = [
     title: "Ticket Management System (Work in Progress)",
     description:
       "Developed a task management web portal for a local computer repair business to streamline their ticketing and workflow processes.",
-    image: "/repairshop.png?height=400&width=600",
+    image: "/repairshop.png",
     tags: [
       "Next.js",
       "Tailwind CSS",
@@ -76,7 +76,7 @@ const projects : projectType[] = [
     title: "Simplify",
     description:
       "A Chrome extension designed to help users with reading difficulties (e.g., ADHD) by simplifying web content and enhancing readability.",
-    image: "/simplyfyit1.jpg?height=400&width=600",
+    image: "/simplyfyit1.jpg",
     tags: ["Vanilla JS", "HTML", "CSS", "n8n", "Clerk", "LocalStorage"],
     category: "Hackathon",
     date: "Mar 2025",
@@ -94,7 +94,7 @@ const projects : projectType[] = [
     title: "Enterprise Twitter Clone",
     description:
       "A full-featured Twitter clone built as part of Cognizant's Full Stack Engineer Level 2 certification, leveraging enterprise-grade AWS architecture and modern Java backend.",
-    image: "/tweetappc3.png?height=400&width=600",
+    image: "/tweetappc3.png",
     tags: ["React.js", "Java", "Spring Boot", "AWS", "Kafka", "ELK Stack"],
     category: "fullstack",
     date: "July 2022",
