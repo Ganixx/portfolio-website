@@ -15,13 +15,13 @@ const experiences = [
     description:
       "Delivered an end-to-end, cloud-native upgrade of the BSPN portal-building React/Redux screens, Spring Boot microservices, Redis caching,Azure AD SSO, and AWS-based DevOps pipelines to give insurance agents a faster, seamless experience.",
     achievements: [
-    "Developed Responsive Web Features: Implemented new user-facing features on the BSPN portal using React.js and Redux, building an intuitive single-page application for insurance agents. ",
-    "Built and Consumed Microservices: Developed backend Spring Boot microservices and REST APIs powering core BSPN functionalities like client info lookup, policy management, and commission tracking.",
-    "Optimized Performance with Caching: Improved page and report load times by implementing a caching layer for frequently requested data. Used Spring’s caching abstraction backed by Redis to store results of expensive operations",
-    "DevOps and Cloud Deployment: Gained hands-on experience with AWS cloud infrastructure and DevOps pipelines. Containerized the Spring Boot services using Docker and deployed them on AWS (using Amazon ECS),set up automated build/test pipelines and implemented blue-green deployments for zero-downtime releases.",
-    "Monitoring and Support (Run Team): Collaborated with the operations team to monitor the BSPN platform in production. Used monitoring tools like splunk with defined alerts to track uptime, error rates, and performance metrics.",
-    "Agile Collaboration and Quality Assurance: Worked in a Scrum team following two-week sprints. Participated in daily stand-ups, sprint planning, and retrospectives, emphasized code quality, wrote unit tests for new backend modules and used Jest to test React components. ",
-    "Integrated Enterprise SSO (Azure AD): Worked on Implementation of Single Sign-On using Azure Active Directory for the portal’s authentication. "
+      "Owned the end-to-end migration of the Agent Profile, and Client & Policy modules from a Java monolith to a Spring Boot microservices architecture, serving 10,000 daily active users.",
+      "Engineered front-end features using React.js for the agent portal, specifically building the UI for agents to look up client data and manage policy endorsements.",
+      "Reduced P95 page latency by 25% on the Client & Policy lookup module by implementing a Redis-backed caching layer, which also accelerated complex report generation in the Reporting & Analytics module.",
+      "Enhanced system observability across all owned modules by implementing an OpenTelemetry, Prometheus, and Grafana stack, reducing mean time to detection for production issues.",
+      "Secured the production monolith by patching the critical Log4j CVE-2021-44228 vulnerability, analyzing all impacted services to ensure a seamless deployment under a 1-week deadline.",
+      "Raised test coverage to 94% on new microservices (JUnit, Mockito, Testcontainers) and closed 10 legacy bugs pre-cutover.",
+      "Automated infrastructure provisioning and deployment by containerizing Spring Boot services with Docker and contributing to CI/CD pipelines on AWS."
     ],
     technologies: ["Java", "React.js", "Spring Boot", "AWS", "Azure Ad", "REST API", "Mysql"],
     icon : Building2
